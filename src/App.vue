@@ -1,13 +1,25 @@
 <template>
- <Estudiante/>
+  <Estudiante />
+  <br>
+  <br>
+  <br>
+  <GuardaEstudiante />
+  <ActualizarEstudiante/>
+  <EliminarEstudiante/>
 </template>
 
 <script>
-import Estudiante from './modules/estudiante/pages/Estudiante.vue'
+import Estudiante from './modules/estudiante/pages/ConsultaEstudiante.vue'
+import GuardaEstudiante from './modules/estudiante/pages/GuardaEstudiante.vue'
+import ActualizarEstudiante from './modules/estudiante/pages/ActualizarEstudiante.vue';
+import EliminarEstudiante from './modules/estudiante/pages/EliminarEstudiante.vue';
 export default {
   name: 'App',
   components: {
-    Estudiante
+    Estudiante,
+    GuardaEstudiante,
+    ActualizarEstudiante,
+    EliminarEstudiante
   }
 }
 </script>
