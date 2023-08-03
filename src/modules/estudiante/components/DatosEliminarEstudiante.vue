@@ -1,7 +1,11 @@
 <template>
-    <label for="">Id</label>
-    <input v-model="id" type="text">
-    <button @click="eliminarEstudiante">Consultar: </button>
+	<div class="container">
+		<div class="form">
+			<label for="id">ID</label>
+			<input id="id" v-model="id" type="text" />
+			<button class="btnAction" @click="eliminarEstudiante">Eliminar</button>
+		</div>
+	</div>
 
 </template>
 
@@ -22,4 +26,49 @@ export default {
 }
 </script>
 
-<style></style>
+<style scoped>
+	.container {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+	}
+
+	.form {
+		margin: 15px 25px;
+		padding: 15px 25px;
+		border-radius: 10px;
+        background-color: rgb(21, 65, 66);
+		display: flex;
+        color: white;
+		flex-direction: column;
+		width: 300px;
+		text-align: left;
+	}
+
+	.btnAction {
+		display: flex;
+		align-self: center;
+		text-align: center;
+		width: fit-content;
+        border:none;
+        font-size: 10px;
+		border-radius: 5px;
+		background-color: hsla(96, 68%, 79%, 0.966);
+		padding: 10px;
+	}
+
+	label,
+	input {
+		margin-bottom: 10px;
+	}
+
+	button {
+		width: 100px;
+	}
+
+	button:hover {
+		cursor: pointer;
+	}
+
+</style>

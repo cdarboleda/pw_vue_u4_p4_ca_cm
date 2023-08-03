@@ -1,4 +1,5 @@
 <template>
+	<h1>ACTUALIZAR ESTUDIANTE</h1>
     <DatosActualizarEstudianteVue/>
     </template>
     
