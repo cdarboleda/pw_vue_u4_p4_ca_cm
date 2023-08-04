@@ -1,7 +1,7 @@
 <template>
   	<div class="navBar">
 		<router-link class="routerElem" to="/">Bienvenida</router-link>
-		<router-link class="routerElem" to="/consultar">Consultar</router-link>
+		<router-link class="routerElem" to="/consultar/:cedula">Consultar</router-link>
 		<router-link class="routerElem" to="/actualizar">Actualizar</router-link>
         <router-link class="routerElem" to="/guardar">Guardar</router-link>
         <router-link class="routerElem" to="/eliminar">Eliminar</router-link>

@@ -20,40 +20,51 @@
 </template>
 
 <script>
-	import { obtenerEstudianteFachada } from "../helpers/EstudianteCliente.js"
-	export default {
-		data() {
-			return {
-				cedula: null,
-				nombre: null,
-				apellido: null,
-				fechaNacimiento: null,
-				provincia: null,
-				consultado: false,
-			};
+import { obtenerEstudianteFachada } from "../helpers/EstudianteCliente.js"
+export default {
+	data() {
+		return {
+			cedula: this.$route.query.cedula,
+			nombre: null,
+			apellido: null,
+			fechaNacimiento: null,
+			provincia: this.$route.query.provincia,
+			consultado: false,
+		};
+	},
+	methods: {
+		async consultarEstudiante() {
+			const data = await obtenerEstudianteFachada(this.cedula);
+			this.nombre = data.nombre;
+			this.apellido = data.apellido;
+			this.fechaNacimiento = data.fechaNacimiento;
+			this.provincia = data.provincia;
+			this.consultado = true;
+			console.log(data)
 		},
-		methods: {
-			async consultarEstudiante() {
-				const data = await obtenerEstudianteFachada(this.cedula);
-				this.nombre = data.nombre;
-				this.apellido = data.apellido;
-				this.fechaNacimiento = data.fechaNacimiento;
-				this.provincia = data.provincia;
-				this.consultado = true;
-				console.log(data)
-			}
+	},
+
+	mounted(){
+			const {cedula} = this.$route.params;
+      		console.log(cedula);
+			console.log(this.$route)
+			const {provincia} = this.$route.query;
+			this.cedula = cedula;
+			console.log(provincia)
+			this.consultarEstudiante()
 		}
-	}
+}
 </script>
 
 <style scoped>
-	.container {
-		display: flex;
-		flex-direction: column;
-		justify-content: center;
-		align-items: center;
-	}
+.container {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
 
+/* 
 	.form {
 		margin: 15px 25px;
 		padding: 15px 25px;
@@ -64,37 +75,53 @@
 		flex-direction: column;
 		width: 300px;
 		text-align: left;
-	}
+	} */
 
-	.form-result {
-		margin: 15px 0px;
-		display: flex;
-		flex-direction: column;
-		text-align: left;
-	}
+	.form {
+	display: flex;
+	color: white;
+	flex-direction: column;
+	text-align: left;
+	width: 340px;
+	height: 450px;
+	background-color: #5AD9F2;
+	border: 3px solid #3D6B74;
+	border-radius: 8px;
+	padding: 20px 30px;
+	box-shadow: 0px 0px 40px 10px rgba(0, 0, 0, 0.247);
+	max-width: calc(100vw-40px);
+	font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
 
-	.btnAction {
-		display: flex;
-		align-self: center;
-		text-align: center;
-		width: fit-content;
-        border:none;
-        font-size: 10px;
-		border-radius: 5px;
-		background-color: hsla(96, 68%, 79%, 0.966);
-		padding: 10px;
-	}
+.form-result {
+	margin: 15px 0px;
+	display: flex;
+	flex-direction: column;
+	text-align: left;
+}
 
-	label,
-	input {
-		margin-bottom: 10px;
-	}
+.btnAction {
+	display: flex;
+	align-self: center;
+	text-align: center;
+	width: fit-content;
+	border: none;
+	font-size: 10px;
+	border-radius: 5px;
+	background-color: hsla(96, 68%, 79%, 0.966);
+	padding: 10px;
+}
 
-	button {
-		width: 100px;
-	}
+label,
+input {
+	margin-bottom: 10px;
+}
 
-	button:hover {
-		cursor: pointer;
-	}
+button {
+	width: 100px;
+}
+
+button:hover {
+	cursor: pointer;
+}
 </style>

@@ -6,7 +6,7 @@ const routes = [
         component : () => import ("../modules/estudiante/pages/Bienvenida.vue")
     },
     {
-        path:"/consultar",
+        path:"/consultar/:cedula",
         component : () => import ("../modules/estudiante/pages/ConsultaEstudiante.vue")
     },
     {

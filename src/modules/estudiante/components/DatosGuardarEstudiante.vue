@@ -27,14 +27,16 @@
 			};
 		},
 		methods: {
-			async guardarEstudiante() {
+			 guardarEstudiante() {
 				const data = {
 					cedula: this.cedula,
 					nombre: this.nombre,
 					apellido: this.apellido,
 					provincia: "Pichincha"
 				}
-				await ingresarEstudianteFachada(data);
+				ingresarEstudianteFachada(data);
+
+				console.log('Usuario insertado')
 			}
 		}
 	}
@@ -48,6 +50,7 @@
 		align-items: center;
 	}
 
+	/*
 	.form {
 		margin: 15px 25px;
 		padding: 15px 25px;
@@ -59,6 +62,23 @@
 		width: 300px;
 		text-align: left;
 	}
+	*/
+
+	.form {
+	display: flex;
+	color: white;
+	flex-direction: column;
+	text-align: left;
+	width: 340px;
+	height: 450px;
+	background-color: #5AD9F2;
+	border: 3px solid #3D6B74;
+	border-radius: 8px;
+	padding: 20px 30px;
+	box-shadow: 0px 0px 40px 10px rgba(0, 0, 0, 0.247);
+	max-width: calc(100vw-40px);
+	font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
 
 	.btnAction {
 		display: flex;
